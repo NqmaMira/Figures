@@ -44,3 +44,16 @@ TEST_CASE("Rectangle toString rounds correctly", "[figure][rectangle]") {
 	str = rect->toString();
 	REQUIRE(str == expected);
 }
+TEST_CASE("Rectangle clone works correctly", "[figure][rectangle]") {
+	double w = 25;
+	double h = 35;
+	rectangle* rect1 = new rectangle(w, h);
+	rectangle* rect2 = rect1->clone();
+	REQUIRE(rect1 != rect2);
+	REQUIRE(compareDoubles(rect1->perimeter(), rect2->perimeter()));
+	REQUIRE(rect1->toString() == rect2->toString());
+}
+TEST_CASE("Rectangle copy constructor throws on nullptr", "[figure][rectangle]") {
+	rectangle* rect = nullptr;
+	REQUIRE_THROWS_AS(rectangle(rect), std::invalid_argument);
+}

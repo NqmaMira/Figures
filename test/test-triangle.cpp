@@ -61,3 +61,17 @@ TEST_CASE("Triangle toString rounds correctly", "[figure][triangle]") {
 	str = tr->toString();
 	REQUIRE(str == expected);
 }
+TEST_CASE("Triangle clone works correctly", "[figure][triangle]") {
+	double a = 25;
+	double b = 35;
+	double c = 45;
+	triangle* tr1 = new triangle(a, b, c);
+	triangle* tr2 = tr1->clone();
+	REQUIRE(tr1 != tr2);
+	REQUIRE(compareDoubles(tr1->perimeter(), tr2->perimeter()));
+	REQUIRE(tr1->toString() == tr2->toString());
+}
+TEST_CASE("Triangle copy constructor throws on nullptr", "[figure][triangle]") {
+	triangle* tr = nullptr;
+	REQUIRE_THROWS_AS(triangle(tr), std::invalid_argument);
+}

@@ -1,5 +1,4 @@
 #include "circle.h"
-#include "circle.h"
 #include <stdexcept>
 #include <cmath>
 
@@ -13,6 +12,12 @@ circle::circle(double r) {
 	radius = r;
 }
 
+circle::circle(const circle* c) {
+	if(c == nullptr)
+		throw std::invalid_argument("Nullptr exception!");
+	radius = c->radius;
+}
+
 double circle::perimeter() const {
 	return 2 * PI * radius;
 }
@@ -22,4 +27,8 @@ std::string circle::toString() const {
 	std::string rounded = num_text.substr(0, num_text.find(".") + 3);
 	std::string result = "circle " + rounded;
 	return result;
+}
+
+circle* circle::clone() const {
+	return new circle(*this);
 }

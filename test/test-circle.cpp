@@ -10,7 +10,7 @@ TEST_CASE("Circle throws if perimeter is going to be too big", "[figure][circle]
 }
 TEST_CASE("Circle throws if given radius equal to or lesser than zero", "[figure][circle]") {
 	REQUIRE_THROWS_AS(circle(-1), std::invalid_argument);
-	REQUIRE_THROWS_AS(circle(0), std::invalid_argument);
+	REQUIRE_THROWS_AS(circle(0.0), std::invalid_argument);
 }
 TEST_CASE("Circle returns correct perimeter", "[figure][circle]") {
 	double r = 10;
@@ -37,4 +37,16 @@ TEST_CASE("Circle toString rounds correctly", "[figure][circle]") {
 	expected = "circle 10.01";
 	str = c->toString();
 	REQUIRE(str == expected);
+}
+TEST_CASE("Circle clone works correctly", "[figure][circle]") {
+	double r = 15;
+	circle* c1 = new circle(r);
+	circle* c2 = c1->clone();
+	REQUIRE(c1 != c2);
+	REQUIRE(compareDoubles(c1->perimeter(), c2->perimeter()));
+	REQUIRE(c1->toString() == c2->toString());
+}
+TEST_CASE("Circle copy constructor throws on nullptr", "[figure][circle]") {
+	circle* c = nullptr;
+	REQUIRE_THROWS_AS(circle(c), std::invalid_argument);
 }

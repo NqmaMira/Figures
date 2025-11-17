@@ -8,7 +8,9 @@ private:
 	double c;
 public:
 	triangle(double a, double b, double c);
+	triangle(const triangle* tr);
 	double perimeter() const override;
 	virtual ~triangle() = default;
 	std::string toString() const override;
+	triangle* clone() const override;
 };

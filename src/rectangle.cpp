@@ -11,6 +11,13 @@ rectangle::rectangle(double w, double h) {
 	height = h;
 }
 
+rectangle::rectangle(const rectangle* rect) {
+	if (rect == nullptr)
+		throw std::invalid_argument("Nullptr exception!");
+	width = rect->width;
+	height = rect->height;
+}
+
 double rectangle::perimeter() const {
 	return 2 * (width + height);
 }
@@ -23,4 +30,8 @@ std::string rectangle::toString() const {
 	rounded = num_text.substr(0, num_text.find(".") + 3);
 	result += rounded;
 	return result;
+}
+
+rectangle* rectangle::clone() const {
+	return new rectangle(*this);
 }

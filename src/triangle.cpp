@@ -30,6 +30,14 @@ triangle::triangle(double a, double b, double c) {
 
 }
 
+triangle::triangle(const triangle* tr) {
+	if (tr == nullptr)
+		throw std::invalid_argument("Nullptr exception!");
+	a = tr->a;
+	b = tr->b;
+	c = tr->c;
+}
+
 double triangle::perimeter() const{
 	return a + b + c;
 }
@@ -45,4 +53,8 @@ std::string triangle::toString() const {
 	rounded = num_text.substr(0, num_text.find(".") + 3);
 	result += rounded;
 	return result;
+}
+
+triangle* triangle::clone() const {
+	return new triangle(*this);
 }
