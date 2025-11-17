@@ -1,7 +1,7 @@
 #include "stringToFigure.h"
-#include "circleFactory.h"
-#include "triangleFactory.h"
-#include "rectangleFactory.h"
+#include "circleReader.h"
+#include "triangleReader.h"
+#include "rectangleReader.h"
 #include <stdexcept>
 #include <sstream>
 
@@ -16,13 +16,13 @@ figure* stringToFigure::createFrom(std::string representation) {
 	std::string figureType;
 	stream >> figureType;
 	//std::istringstream iss(params);
-	figureFactory* factory = nullptr;
+	figureReader* factory = nullptr;
 	if (figureType == "circle") {
-		factory = new circleFactory();
+		factory = new circleReader();
 	} else if (figureType == "triangle") {
-		factory = new triangleFactory();
+		factory = new triangleReader();
 	} else if (figureType == "rectangle") {
-		factory = new rectangleFactory();
+		factory = new rectangleReader();
 	} else {
 		throw std::invalid_argument("Unknown figure type: " + figureType);
 	}

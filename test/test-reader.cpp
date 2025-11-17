@@ -48,4 +48,5 @@ TEST_CASE("stringToFigure throws on invalid format", "[stringToFigure]") {
 	REQUIRE_THROWS_AS(factory.createFrom("triangle 3.0 4.0"), std::invalid_argument);
 	REQUIRE_THROWS_AS(factory.createFrom("rectangle 20.0"), std::invalid_argument);
 	REQUIRE_THROWS_AS(factory.createFrom("rectangle aaa"), std::invalid_argument);
+	REQUIRE_THROWS_AS(factory.createFrom("rectangle -4.0 4.0"), std::invalid_argument);
 }

@@ -1,8 +1,8 @@
-#include "triangleFactory.h"
+#include "triangleReader.h"
 #include <sstream>
 #include <stdexcept>
 
-triangle* triangleFactory::readFigure(const std::string& description) {
+triangle* triangleReader::readFigure(const std::string& description) {
 	std::istringstream stream(description);
 	double a, b, c;
 	if(stream.eof()) {

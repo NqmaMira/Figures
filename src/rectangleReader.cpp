@@ -1,8 +1,8 @@
-#include "rectangleFactory.h"
+#include "rectangleReader.h"
 #include <sstream>
 #include <stdexcept>
 
-rectangle* rectangleFactory::readFigure(const std::string& description) {
+rectangle* rectangleReader::readFigure(const std::string& description) {
 	std::istringstream stream(description);
 	double width, height;
 	if(stream.eof()) {

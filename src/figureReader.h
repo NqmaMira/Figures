@@ -1,7 +1,7 @@
 #pragma once
 #include "figure.h"
 
-class figureFactory {
+class figureReader {
 	public:
 	virtual figure* readFigure(const std::string& description) = 0;
 };

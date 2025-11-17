@@ -1,8 +1,8 @@
 #pragma once
-#include "figureFactory.h"
+#include "figureReader.h"
 #include "triangle.h"
 
-class triangleFactory : public figureFactory {
+class triangleReader : public figureReader {
 	public:
 		triangle* readFigure(const std::string& description) override;
 };

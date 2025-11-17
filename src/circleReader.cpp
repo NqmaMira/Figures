@@ -1,9 +1,9 @@
-#include "circleFactory.h"
+#include "circleReader.h"
 #include "circle.h"
 #include <sstream>
 #include <stdexcept>
 
-circle* circleFactory::readFigure(const std::string& description) {
+circle* circleReader::readFigure(const std::string& description) {
 	std::istringstream stream(description);
 	double radius;
 	stream >> radius;

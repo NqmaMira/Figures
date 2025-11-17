@@ -45,22 +45,22 @@ target_sources(
         "compareDoubles.cpp"
 )
 
-# Factory static library
-add_library(factorylib STATIC)
+# Reader static library
+add_library(readerlib STATIC)
 
-set_target_properties(factorylib PROPERTIES OUTPUT_NAME "factory")
+set_target_properties(readerlib PROPERTIES OUTPUT_NAME "reader")
 
 target_sources(
-    factorylib
+    readerlib
     PRIVATE
         "stringToFigure.h"
         "stringToFigure.cpp"
-        "triangleFactory.h"
-        "triangleFactory.cpp"
-        "circleFactory.h"
-        "circleFactory.cpp"
-        "rectangleFactory.h"
-        "rectangleFactory.cpp"
+        "triangleReader.h"
+        "triangleReader.cpp"
+        "circleReader.h"
+        "circleReader.cpp"
+        "rectangleReader.h"
+        "rectangleReader.cpp"
 )
 
 # Executable target for the application
@@ -75,7 +75,7 @@ target_link_libraries(
         trianglelib
         circlelib
         rectanglelib
-        factorylib
+        readerlib
 )
 
 target_sources(
