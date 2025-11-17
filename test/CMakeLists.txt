@@ -5,6 +5,7 @@ target_link_libraries(
     unit-tests
     PRIVATE
         trianglelib
+        circlelib
         Catch2::Catch2WithMain
 )
 
@@ -12,6 +13,7 @@ target_sources(
     unit-tests
     PRIVATE
         "test-triangle.cpp"
+        "test-circle.cpp"
 )
 
 # Automatically register all tests

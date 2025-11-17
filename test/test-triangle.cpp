@@ -1,5 +1,6 @@
 #include "catch2/catch_all.hpp"
 #include "triangle.h"
+#include "../src/compareDoubles.cpp"
 
 #include <array>
 
@@ -32,6 +33,6 @@ TEST_CASE("Triangle return correct perimeter", "[figure][triangle]") {
 	double c = 30;
 	triangle* tr = new triangle(a, b, c);
 	double expected = 130;
-	double p = tr->perimeter;
-	REQUIRE(p == expected);
+	double p = tr->perimeter();
+	REQUIRE(compareDoubles(p, expected));
 }

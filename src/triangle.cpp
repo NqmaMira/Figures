@@ -1,12 +1,12 @@
 #include "triangle.h"
 #include <stdexcept>
-//#include <math.h>
+#include <cmath>
 
 void swapIfGreater(double& a, double& b) {
 	if (a > b) {
-		a += b;
-		b = a - b;
-		a = b - a;
+		double temp = a;
+		a = b;
+		b = temp;
 	}
 }
 
@@ -18,7 +18,7 @@ triangle::triangle(double a, double b, double c) {
 	swapIfGreater(a, c);
 	swapIfGreater(b, c);
 
-	if (isinf(a + b + c))
+	if (std::isinf(a + b + c))
 		throw std::invalid_argument("The sum of the sides must be less then the max double!");
 
 	if (a + b <= c)
