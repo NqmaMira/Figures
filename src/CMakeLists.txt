@@ -8,7 +8,6 @@ target_sources(
     PRIVATE
         "triangle.cpp"
         "triangle.h"
-        "compareDoubles.cpp"
 )
 
 # Circle static library
@@ -21,6 +20,28 @@ target_sources(
     PRIVATE
         "circle.cpp"
         "circle.h"
+)
+
+# Rectangle static library
+add_library(rectanglelib STATIC)
+
+set_target_properties(rectanglelib PROPERTIES OUTPUT_NAME "rectangle")
+
+target_sources(
+    rectanglelib
+    PRIVATE
+        "rectangle.cpp"
+        "rectangle.h"
+)
+
+# Helper static library
+add_library(helperlib STATIC)
+
+set_target_properties(helperlib PROPERTIES OUTPUT_NAME "helper")
+
+target_sources(
+    helperlib
+    PRIVATE
         "compareDoubles.cpp"
 )
 
@@ -32,8 +53,10 @@ set_target_properties(application PROPERTIES OUTPUT_NAME "figures")
 target_link_libraries(
     application
     PRIVATE
+        helperlib
         trianglelib
         circlelib
+        rectanglelib
 )
 
 target_sources(
