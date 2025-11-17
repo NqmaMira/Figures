@@ -36,3 +36,28 @@ TEST_CASE("Triangle return correct perimeter", "[figure][triangle]") {
 	double p = tr->perimeter();
 	REQUIRE(compareDoubles(p, expected));
 }
+TEST_CASE("Triangle toString returns correct string", "[figure][triangle]") {
+	double a = 40;
+	double b = 60;
+	double c = 30;
+	triangle* tr = new triangle(a, b, c);
+	std::string expected = "triangle 30.00 40.00 60.00";
+	std::string str = tr->toString();
+	REQUIRE(str == expected);
+}
+TEST_CASE("Triangle toString rounds correctly", "[figure][triangle]") {
+	double a = 40.004;
+	double b = 60.004;
+	double c = 30.004;
+	triangle* tr = new triangle(a, b, c);
+	std::string expected = "triangle 30.00 40.00 60.00";
+	std::string str = tr->toString();
+	REQUIRE(str == expected);
+	a = 40.005;
+	b = 60.005;
+	c = 30.005;
+	tr = new triangle(a, b, c);
+	expected = "triangle 30.01 40.01 60.01";
+	str = tr->toString();
+	REQUIRE(str == expected);
+}

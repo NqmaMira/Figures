@@ -1,6 +1,7 @@
 #pragma once
+#include "stringConvertible.h"
 
-class figure {
+class figure : public stringConvertible {
 public:
 	virtual double perimeter() const = 0;
 	virtual ~figure() = default;

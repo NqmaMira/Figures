@@ -10,4 +10,5 @@ public:
 	triangle(double a, double b, double c);
 	double perimeter() const override;
 	virtual ~triangle() = default;
+	std::string toString() const override;
 };
