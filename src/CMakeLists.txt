@@ -45,6 +45,24 @@ target_sources(
         "compareDoubles.cpp"
 )
 
+# Factory static library
+add_library(factorylib STATIC)
+
+set_target_properties(factorylib PROPERTIES OUTPUT_NAME "factory")
+
+target_sources(
+    factorylib
+    PRIVATE
+        "stringToFigure.h"
+        "stringToFigure.cpp"
+        "triangleFactory.h"
+        "triangleFactory.cpp"
+        "circleFactory.h"
+        "circleFactory.cpp"
+        "rectangleFactory.h"
+        "rectangleFactory.cpp"
+)
+
 # Executable target for the application
 add_executable(application)
 
@@ -57,6 +75,7 @@ target_link_libraries(
         trianglelib
         circlelib
         rectanglelib
+        factorylib
 )
 
 target_sources(

@@ -9,6 +9,7 @@ target_link_libraries(
         circlelib
         rectanglelib
         Catch2::Catch2WithMain
+        factorylib
 )
 
 target_sources(
@@ -17,6 +18,7 @@ target_sources(
         "test-triangle.cpp"
         "test-circle.cpp"
         "test-rectangle.cpp"
+        "test-strFactory.cpp"
 )
 
 # Automatically register all tests

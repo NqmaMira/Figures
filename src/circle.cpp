@@ -1,6 +1,7 @@
 #include "circle.h"
 #include <stdexcept>
 #include <cmath>
+#include <sstream>
 
 const double PI = 3.14;
 
