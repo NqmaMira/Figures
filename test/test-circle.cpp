@@ -19,3 +19,22 @@ TEST_CASE("Circle returns correct perimeter", "[figure][circle]") {
 	double p = c->perimeter();
 	REQUIRE(compareDoubles(p, expected));
 }
+TEST_CASE("Circle toString returns correct string", "[figure][circle]") {
+	double r = 10;
+	circle* c = new circle(r);
+	std::string expected = "circle 10.00";
+	std::string str = c->toString();
+	REQUIRE(str == expected);
+}
+TEST_CASE("Circle toString rounds correctly", "[figure][circle]") {
+	double r = 10.004;
+	circle* c = new circle(r);
+	std::string expected = "circle 10.00";
+	std::string str = c->toString();
+	REQUIRE(str == expected);
+	r = 10.005;
+	c = new circle(r);
+	expected = "circle 10.01";
+	str = c->toString();
+	REQUIRE(str == expected);
+}

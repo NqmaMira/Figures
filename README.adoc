@@ -9,7 +9,7 @@
 :url-cmake-cmake-prefix-path-envvar: https://cmake.org/cmake/help/latest/envvar/CMAKE_PREFIX_PATH.html
 :url-git-submodule: https://git-scm.com/book/en/v2/Git-Tools-Submodules
 
-This repository contains a simple template for new CMake projects.
+This repository uses a simple template for new CMake projects.
 
 For more information on the individual features, see the sections below.
 

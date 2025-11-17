@@ -22,3 +22,25 @@ TEST_CASE("Rectangle returns correct perimeter", "[figure][rectangle]") {
 	double p = rect->perimeter();
 	REQUIRE(compareDoubles(p, expected));
 }
+TEST_CASE("Rectangle toString returns correct string", "[figure][rectangle]") {
+	double w = 20;
+	double h = 30;
+	rectangle* rect = new rectangle(w, h);
+	std::string expected = "rectangle 20.00 30.00";
+	std::string str = rect->toString();
+	REQUIRE(str == expected);
+}
+TEST_CASE("Rectangle toString rounds correctly", "[figure][rectangle]") {
+	double w = 20.004;
+	double h = 30.004;
+	rectangle* rect = new rectangle(w, h);
+	std::string expected = "rectangle 20.00 30.00";
+	std::string str = rect->toString();
+	REQUIRE(str == expected);
+	w = 20.005;
+	h = 30.005;
+	rect = new rectangle(w, h);
+	expected = "rectangle 20.01 30.01";
+	str = rect->toString();
+	REQUIRE(str == expected);
+}

@@ -33,3 +33,16 @@ triangle::triangle(double a, double b, double c) {
 double triangle::perimeter() const{
 	return a + b + c;
 }
+
+std::string triangle::toString() const {
+	std::string num_text = std::to_string(a + 0.005);
+	std::string rounded = num_text.substr(0, num_text.find(".") + 3);
+	std::string result = "triangle " + rounded + " ";
+	num_text = std::to_string(b + 0.005);
+	rounded = num_text.substr(0, num_text.find(".") + 3);
+	result += rounded + " ";
+	num_text = std::to_string(c + 0.005);
+	rounded = num_text.substr(0, num_text.find(".") + 3);
+	result += rounded;
+	return result;
+}

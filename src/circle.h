@@ -8,4 +8,5 @@ public:
 	circle(double r);
 	double perimeter() const override;
 	virtual ~circle() = default;
+	std::string toString() const override;
 };
