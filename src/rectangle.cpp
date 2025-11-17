@@ -14,3 +14,13 @@ rectangle::rectangle(double w, double h) {
 double rectangle::perimeter() const {
 	return 2 * (width + height);
 }
+
+std::string rectangle::toString() const {
+	std::string num_text = std::to_string(width + 0.005);
+	std::string rounded = num_text.substr(0, num_text.find(".") + 3);
+	std::string result = "rectangle " + rounded + " ";
+	num_text = std::to_string(height + 0.005);
+	rounded = num_text.substr(0, num_text.find(".") + 3);
+	result += rounded;
+	return result;
+}
