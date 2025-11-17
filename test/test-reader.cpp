@@ -5,7 +5,7 @@
 #include "triangle.h"
 #include "rectangle.h"
 
-TEST_CASE("stringToFigure creates circle correctly", "[stringToFigure][circle]") {
+TEST_CASE("stringToFigure creates circle correctly", "[reader][circle]") {
 	stringToFigure factory;
 	figure* fig = factory.createFrom("circle 10.0");
 	circle* c = dynamic_cast<circle*>(fig);
@@ -16,7 +16,7 @@ TEST_CASE("stringToFigure creates circle correctly", "[stringToFigure][circle]")
 	REQUIRE(c->toString() == expectedString);
 	delete fig;
 }
-TEST_CASE("stringToFigure creates triangle correctly", "[stringToFigure][triangle]") {
+TEST_CASE("stringToFigure creates triangle correctly", "[reader][triangle]") {
 	stringToFigure factory;
 	figure* fig = factory.createFrom("triangle 3.0 4.0 5.0");
 	triangle* tr = dynamic_cast<triangle*>(fig);
@@ -27,7 +27,7 @@ TEST_CASE("stringToFigure creates triangle correctly", "[stringToFigure][triangl
 	REQUIRE(tr->toString() == expectedString);
 	delete fig;
 }
-TEST_CASE("stringToFigure creates rectangle correctly", "[stringToFigure][rectangle]") {
+TEST_CASE("stringToFigure creates rectangle correctly", "[reader][rectangle]") {
 	stringToFigure factory;
 	figure* fig = factory.createFrom("rectangle 20.0 30.0");
 	rectangle* rect = dynamic_cast<rectangle*>(fig);
@@ -38,11 +38,11 @@ TEST_CASE("stringToFigure creates rectangle correctly", "[stringToFigure][rectan
 	REQUIRE(rect->toString() == expectedString);
 	delete fig;
 }
-TEST_CASE("stringToFigure throws on unknown figure type", "[stringToFigure]") {
+TEST_CASE("stringToFigure throws on unknown figure type", "[reader]") {
 	stringToFigure factory;
 	REQUIRE_THROWS_AS(factory.createFrom("unknown 10.0"), std::invalid_argument);
 }
-TEST_CASE("stringToFigure throws on invalid format", "[stringToFigure]") {
+TEST_CASE("stringToFigure throws on invalid format", "[reader]") {
 	stringToFigure factory;
 	REQUIRE_THROWS_AS(factory.createFrom("circle"), std::invalid_argument);
 	REQUIRE_THROWS_AS(factory.createFrom("triangle 3.0 4.0"), std::invalid_argument);

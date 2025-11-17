@@ -75,6 +75,18 @@ target_sources(
         "randomFigureFactory.cpp"
 )
 
+# StreamFactory static library
+add_library(streamfactorylib STATIC)
+
+set_target_properties(streamfactorylib PROPERTIES OUTPUT_NAME "streamfactory")
+
+target_sources(
+    streamfactorylib
+    PRIVATE
+        "streamFigureFactory.h"
+        "streamFigureFactory.cpp"
+)
+
 # Executable target for the application
 add_executable(application)
 
@@ -89,6 +101,7 @@ target_link_libraries(
         rectanglelib
         readerlib
         randfactorylib
+        streamfactorylib
 )
 
 target_sources(

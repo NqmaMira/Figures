@@ -5,14 +5,15 @@
 #include "triangle.h"
 #include "circle.h"
 #include "compareDoubles.cpp"
+#include "stringToFigure.h"
+#include "streamFigureFactory.h"
 
 int main()
 {
-	double r = 10;
-	circle* c = new circle(r);
-	double expected = 62.8;
-	double p = c->perimeter();
-	std::cout << expected << " " << p;
-	std::cout << std::endl << compareDoubles(expected, p);
+	std::istringstream input("triangle 3.0 4.0 5.0\n");
+	streamFigureFactory factory(input);
+	figure* fig = factory.create();
+	std::cout << fig->toString() << "\n";
+	delete fig;
 	return 0;
 }

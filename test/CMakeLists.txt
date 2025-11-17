@@ -11,6 +11,7 @@ target_link_libraries(
         Catch2::Catch2WithMain
         readerlib
         randfactorylib
+        streamfactorylib
 )
 
 target_sources(
@@ -21,6 +22,7 @@ target_sources(
         "test-rectangle.cpp"
         "test-reader.cpp"
         "test-randfactory.cpp"
+        "test-streamfactory.cpp"
 )
 
 # Automatically register all tests
