@@ -4,14 +4,14 @@ add_executable(unit-tests)
 target_link_libraries(
     unit-tests
     PRIVATE
-        samplelib
+        trianglelib
         Catch2::Catch2WithMain
 )
 
 target_sources(
     unit-tests
     PRIVATE
-        "test-library.cpp"
+        "test-triangle.cpp"
 )
 
 # Automatically register all tests
