@@ -4,8 +4,10 @@ add_executable(unit-tests)
 target_link_libraries(
     unit-tests
     PRIVATE
+        helperlib
         trianglelib
         circlelib
+        rectanglelib
         Catch2::Catch2WithMain
 )
 
@@ -14,6 +16,7 @@ target_sources(
     PRIVATE
         "test-triangle.cpp"
         "test-circle.cpp"
+        "test-rectangle.cpp"
 )
 
 # Automatically register all tests
