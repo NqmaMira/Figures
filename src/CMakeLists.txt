@@ -63,6 +63,18 @@ target_sources(
         "rectangleReader.cpp"
 )
 
+# RandFactory static library
+add_library(randfactorylib STATIC)
+
+set_target_properties(randfactorylib PROPERTIES OUTPUT_NAME "randfactory")
+
+target_sources(
+    randfactorylib
+    PRIVATE
+        "randomFigureFactory.h"
+        "randomFigureFactory.cpp"
+)
+
 # Executable target for the application
 add_executable(application)
 
@@ -76,6 +88,7 @@ target_link_libraries(
         circlelib
         rectanglelib
         readerlib
+        randfactorylib
 )
 
 target_sources(

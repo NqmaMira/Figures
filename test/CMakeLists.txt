@@ -10,6 +10,7 @@ target_link_libraries(
         rectanglelib
         Catch2::Catch2WithMain
         readerlib
+        randfactorylib
 )
 
 target_sources(
@@ -19,6 +20,7 @@ target_sources(
         "test-circle.cpp"
         "test-rectangle.cpp"
         "test-reader.cpp"
+        "test-randfactory.cpp"
 )
 
 # Automatically register all tests
